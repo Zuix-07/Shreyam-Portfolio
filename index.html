@@ -7,7 +7,7 @@
   <meta name="description" content="Shreyam Dash — Web Designer, Video Editor, Storyteller & Content Writer based in Visakhapatnam." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── CSS Reset & Variables ─── */
@@ -345,7 +345,7 @@
 
     /* ─── Section Base ─── */
     section {
-      padding: clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px);
+      padding: clamp(56px, 6vw, 90px) clamp(24px, 5vw, 80px);
       position: relative;
       z-index: 2;
     }
@@ -373,7 +373,7 @@
       position: relative;
       z-index: 2;
       width: 100%;
-      height: 80px;
+      height: 36px;
       overflow: hidden;
     }
     .wave-divider svg {
@@ -626,10 +626,10 @@
     .stat-card:hover::before { opacity: 1; }
 
     .stat-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
       color: var(--accent);
       line-height: 1;
       margin-bottom: 8px;
@@ -696,7 +696,7 @@
     .cluster-icon svg { width: 24px; height: 24px; }
 
     .cluster-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
@@ -787,8 +787,8 @@
     }
 
     .exp-role {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
       font-weight: 600;
       color: var(--text);
       margin-bottom: 4px;
@@ -868,7 +868,7 @@
     .proj-icon svg { width: 18px; height: 18px; }
 
     .proj-title {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
       color: var(--text);
@@ -960,7 +960,7 @@
     .edu-icon svg { width: 24px; height: 24px; }
 
     .edu-degree {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Space Grotesk', sans-serif;
       font-size: 1.15rem;
       font-weight: 600;
       color: var(--text);
@@ -970,6 +970,20 @@
     .edu-school {
       font-size: 0.88rem;
       color: var(--text-muted);
+      margin-bottom: 4px;
+      position: relative;
+    }
+    .edu-date {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .edu-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
       margin-bottom: 16px;
       position: relative;
     }
@@ -991,6 +1005,154 @@
       background: rgba(10, 15, 10, 0.4);
     }
     [data-theme="light"] .edu-badge { background: rgba(240, 235, 224, 0.5); }
+
+    #certifications {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ─── Certifications Grid & Filters ─── */
+    .certs-filter-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text-muted);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s var(--transition);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .filter-btn:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+      background: var(--surface-hover);
+    }
+    .filter-btn.active {
+      background: var(--accent);
+      color: var(--bg-solid);
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px var(--accent-dim);
+    }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+      transition: all 0.3s var(--transition);
+    }
+    .cert-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.4s, transform 0.4s var(--transition-spring), box-shadow 0.4s, opacity 0.3s var(--transition), scale 0.3s var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .cert-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at top left, var(--glow) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+    }
+    .cert-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--accent-dim);
+    }
+    .cert-card:hover::before { opacity: 1; }
+    
+    .cert-header {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .cert-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cert-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+    .cert-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .cert-issuer {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .cert-meta {
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      margin-top: 4px;
+      font-family: monospace;
+    }
+    .cert-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+    .cert-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .cert-badge {
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 99px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      background: rgba(10, 15, 10, 0.4);
+    }
+    [data-theme="light"] .cert-badge { background: rgba(240, 235, 224, 0.5); }
+    
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+      width: fit-content;
+    }
+    .cert-link:hover {
+      opacity: 0.8;
+    }
+
+    .cert-card.filtered-out {
+      display: none !important;
+    }
 
     /* ─── Contact ─── */
     #contact {
@@ -1129,7 +1291,7 @@
       .stats-row { grid-template-columns: 1fr 1fr; }
       .edu-card { flex-direction: column; gap: 16px; }
       .contact-heading { font-size: clamp(2rem, 8vw, 3rem); }
-      .wave-divider { height: 50px; }
+      .wave-divider { height: 24px; }
     }
 
     @media (max-width: 480px) {
@@ -1182,7 +1344,7 @@
         <svg id="iconDark" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg id="iconLight" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="mailto:jullymishrakjr1@gmail.com" class="nav-cta">Contact</a>
+      <a href="mailto:clouttheorystudio@gmail.com" class="nav-cta">Contact</a>
       <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1195,7 +1357,7 @@
     <a href="#experience" onclick="closeMobile()">Experience</a>
     <a href="#projects" onclick="closeMobile()">Projects</a>
     <a href="#education" onclick="closeMobile()">Education</a>
-    <a href="mailto:jullymishrakjr1@gmail.com" onclick="closeMobile()">Contact</a>
+    <a href="mailto:clouttheorystudio@gmail.com" onclick="closeMobile()">Contact</a>
   </div>
 
   <!-- ═══════════════ HERO ═══════════════ -->
@@ -1214,16 +1376,15 @@
       <span class="role-pill">Video Editor</span>
       <span class="role-pill">Storyteller</span>
       <span class="role-pill">Content Writer</span>
-      <span class="role-pill">YouTuber</span>
-      <span class="role-pill">Working on Startup</span>
+      <span class="role-pill">Founder @Clout Theory</span>
     </div>
 
     <p class="hero-bio">
-      Cohort @Prettiflow · Tech &amp; Business Management Enthusiast · Exploring multiple fields &amp; creating a new startup. Turning ideas into digital experiences and scaling brand presence across platforms.
+      Founder of Clout Theory · ELP Mentor at Google · Cohort @Prettiflow · Researcher @NSRI · Turning raw content into high-retention digital experiences that drive real business growth.
     </p>
 
     <div class="hero-actions">
-      <a href="mailto:jullymishrakjr1@gmail.com" class="btn-primary">
+      <a href="mailto:clouttheorystudio@gmail.com" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Get in Touch
       </a>
@@ -1237,10 +1398,7 @@
       </a>
     </div>
 
-    <div class="hero-scroll-hint">
-      <div class="scroll-line"></div>
-      <span class="scroll-text">scroll to explore</span>
-    </div>
+
   </section>
 
   <!-- Wave Divider -->
@@ -1255,27 +1413,27 @@
           Creative mind,<br><span class="grey">technical edge.</span>
         </h2>
         <p class="about-body reveal reveal-delay-2">
-          I'm Shreyam Dash — a multidisciplinary creator from Visakhapatnam who blends design thinking with scalable execution. I'm currently exploring many fields, working as a content writer, and creating a new startup. Whether it's crafting pixel-perfect web interfaces via HTML/CSS, editing cinematic videos, or writing compelling content, I bring a distinct aesthetic sensibility to every project.
+          I'm Shreyam Dash — a multidisciplinary creator from Visakhapatnam who blends design thinking with scalable execution. As the Founder of Clout Theory, I lead a lean creative studio specializing in high-retention short-form video editing and hook scripting for founders and creators.
         </p>
         <br />
         <p class="about-body reveal reveal-delay-2">
-          As a Cohort member at Prettiflow and the owner of Clout Theory Studio, I'm driven by building brands and digital experiences that leave a mark. Currently, I'm also building a media management consultancy with fresh graduates on Discord, focusing on maximizing ROI through YouTube and Instagram Reels optimization.
+          Beyond building brands, I serve as an ELP Mentor at Google and am currently contributing to Group 130: Auditing Algorithmic Bias in Critical Healthcare AI under STEMSprouts × NSRI Research Groups. I'm also a Cohort Member at Prettiflow, collaborating with builders focused on tech, product design, and growth.
         </p>
       </div>
       <div class="about-right">
         <div class="stats-row">
           <div class="stat-card reveal reveal-delay-1">
-            <div class="stat-number">85%</div>
-            <div class="stat-label">Class 12 (PCM)</div>
+            <div class="stat-number">Founder</div>
+            <div class="stat-label">Clout Theory</div>
           </div>
           <div class="stat-card reveal reveal-delay-2">
-            <div class="stat-number">Active</div>
-            <div class="stat-label">Creating a Startup</div>
+            <div class="stat-number">ELP</div>
+            <div class="stat-label">Mentor at Google</div>
           </div>
         </div>
         <div class="stat-card reveal reveal-delay-3">
           <div class="stat-number">03</div>
-          <div class="stat-label">Core Verticals (Code, Media, Strategy)</div>
+          <div class="stat-label">Core Verticals (Content, Media, Strategy)</div>
         </div>
       </div>
     </div>
@@ -1327,6 +1485,18 @@
           <span class="skill-tag">Startup Foundation</span>
         </div>
       </div>
+      <div class="skill-cluster reveal reveal-delay-4">
+        <span class="cluster-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </span>
+        <div class="cluster-title">Mentorship & Guidance</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Career Counselling</span>
+          <span class="skill-tag">Abroad Studies</span>
+          <span class="skill-tag">Student Mentoring</span>
+          <span class="skill-tag">Circle Mentor</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1340,31 +1510,41 @@
     <div class="timeline">
       <div class="exp-item reveal reveal-delay-1">
         <div class="exp-dot"></div>
-        <div class="exp-period">2026 — Present</div>
-        <div class="exp-role">Cohort Member</div>
-        <div class="exp-company">Prettiflow</div>
+        <div class="exp-period">2025 — Present</div>
+        <div class="exp-role">Founder</div>
+        <div class="exp-company">Clout Theory</div>
         <p class="exp-desc">
-          Selected as a cohort member at Prettiflow — contributing to a community of builders and creators focused on tech, product design, and growth. Collaborating on projects and building startup foundations alongside driven peers.
+          Leading a lean creative studio specializing in high-retention short-form video editing and hook scripting for founders and high-growth creators. Managing end-to-end production workflows and client relationships.
         </p>
       </div>
 
       <div class="exp-item reveal reveal-delay-2">
         <div class="exp-dot"></div>
-        <div class="exp-period">2026 — Present</div>
-        <div class="exp-role">Owner &amp; Creative Director</div>
-        <div class="exp-company">Clout Theory Studio</div>
+        <div class="exp-period">2025 — Present</div>
+        <div class="exp-role">ELP / Circle Mentor</div>
+        <div class="exp-company">Google</div>
         <p class="exp-desc">
-          Founded and operate Clout Theory Studio — a creative studio focused on video production, content strategy, and brand design. Managing end-to-end production workflows from concept ideation to final delivery across visual and audio mediums.
+          Mentoring students and early-stage builders through Google's Entrepreneurship Leadership Program. Guiding mentees on product thinking, career strategy, and startup foundations.
         </p>
       </div>
 
       <div class="exp-item reveal reveal-delay-3">
         <div class="exp-dot"></div>
-        <div class="exp-period">2025 — Present</div>
-        <div class="exp-role">Founder &amp; Media Manager</div>
-        <div class="exp-company">Media Consultancy (Discord)</div>
+        <div class="exp-period">2026 — Present</div>
+        <div class="exp-role">Cohort Member</div>
+        <div class="exp-company">Prettiflow</div>
         <p class="exp-desc">
-          Building and operating a media management consultancy network on Discord with fresh graduates. Focusing on brand scaling, short-form content optimization (Reels), and YouTube monetization strategies for clients.
+          Selected as a cohort member at Prettiflow — contributing to a community of builders and creators focused on tech, product design, and growth.
+        </p>
+      </div>
+
+      <div class="exp-item reveal reveal-delay-4">
+        <div class="exp-dot"></div>
+        <div class="exp-period">2025 — Present</div>
+        <div class="exp-role">Research Contributor</div>
+        <div class="exp-company">NSRI (STEMSprouts × NSRI Research Groups)</div>
+        <p class="exp-desc">
+          Contributing to Group 130: Auditing Algorithmic Bias in Critical Healthcare AI. Researching fairness, accountability, and transparency in AI systems used for medical decision-making.
         </p>
       </div>
     </div>
@@ -1378,31 +1558,36 @@
     <h2 class="proj-heading reveal reveal-delay-1">Projects</h2>
 
     <div class="projects-grid" id="github-projects">
-      <a href="https://github.com/Zuix-07" target="_blank" rel="noopener" class="project-card reveal reveal-delay-1" style="text-decoration:none;">
+      <div class="project-card reveal reveal-delay-1">
+        <div class="proj-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+        </div>
+        <div class="proj-title">Video Editing &amp; Production</div>
+        <p class="proj-desc">Worked with various clients to deliver high-retention video edits, dynamic pacing, and custom hook scripting that drives audience engagement.</p>
+        <div class="proj-footer">
+          <span class="proj-lang"><span class="lang-dot" style="background:#7fb069;"></span>Creative / Production</span>
+        </div>
+      </div>
+      <div class="project-card reveal reveal-delay-2">
+        <div class="proj-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+        </div>
+        <div class="proj-title">Audio Engineering &amp; Editing</div>
+        <p class="proj-desc">Professional vocal tuning, background noise cleanup, sound design, and master mixing for podcasts and creators.</p>
+        <div class="proj-footer">
+          <span class="proj-lang"><span class="lang-dot" style="background:#c8a96e;"></span>Sound Design / Podcasting</span>
+        </div>
+      </div>
+      <a href="https://github.com/Zuix-07" target="_blank" rel="noopener" class="project-card reveal reveal-delay-3" style="text-decoration:none;">
         <div class="proj-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
         </div>
         <div class="proj-title">Portfolio Website</div>
-        <p class="proj-desc">
-          A premium minimalist personal portfolio designed to showcase projects, skills, and experience with pure HTML, CSS, and Vanilla JS.
-        </p>
+        <p class="proj-desc">A premium minimalist personal portfolio designed to showcase projects, skills, and experience with pure HTML, CSS, and Vanilla JS.</p>
         <div class="proj-footer">
           <span class="proj-lang"><span class="lang-dot" style="background:#c8a96e;"></span>HTML / CSS</span>
         </div>
       </a>
-
-      <div class="project-card reveal reveal-delay-2" style="cursor:default;">
-        <div class="proj-icon">
-           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-        </div>
-        <div class="proj-title">Clout Theory Production</div>
-        <p class="proj-desc">
-          Creative studio brand encompassing video production, audio editing, and brand design services. Managed full creative pipeline from brief to delivery.
-        </p>
-        <div class="proj-footer">
-          <span class="proj-lang"><span class="lang-dot" style="background:#7fb069;"></span>Media</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1414,32 +1599,508 @@
     <h2 class="edu-heading reveal reveal-delay-1">Academic Background</h2>
 
     <div class="edu-grid">
+      <!-- Vellore Institute of Technology -->
       <div class="edu-card reveal reveal-delay-2">
         <div class="edu-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
         </div>
         <div>
-          <div class="edu-degree">Class 12 — PCM (Physics, Chemistry, Mathematics)</div>
-          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-degree">Bachelor of Engineering, Computer Science (Core)</div>
+          <div class="edu-school">Vellore Institute of Technology</div>
+          <div class="edu-date">Jun 2026 – Oct 2030 (VIT AP)</div>
+          <p class="edu-desc">Pursuing B.Tech in Computer Science and Engineering. Developing a solid foundation in software architecture, data structures, and algorithms.</p>
           <div class="edu-badges">
-            <span class="edu-badge">85% Overall</span>
-            <span class="edu-badge">CBSE Certified</span>
+            <span class="edu-badge">Computer Science</span>
+            <span class="edu-badge">Data Structures</span>
+            <span class="edu-badge">Algorithms</span>
+            <span class="edu-badge">Software Architecture</span>
           </div>
         </div>
       </div>
 
+      <!-- Sri Chaitanya College of Education -->
       <div class="edu-card reveal reveal-delay-3">
         <div class="edu-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
         </div>
         <div>
-          <div class="edu-degree">Class 10</div>
-          <div class="edu-school">Central Board of Secondary Education (CBSE)</div>
+          <div class="edu-degree">CBSE (PCM)</div>
+          <div class="edu-school">Sri Chaitanya College of Education</div>
+          <div class="edu-date">Mar 2023 – Mar 2026</div>
+          <p class="edu-desc">Grades 9-12. Active volunteer in community initiatives focusing on teamwork. Participated in early computational labs. Developed a personalized study framework using LLMs (ChatGPT/Claude) to generate custom mock papers for JEE and CBSE.</p>
           <div class="edu-badges">
-            <span class="edu-badge">85% Overall</span>
-            <span class="edu-badge">CBSE Certified</span>
-            <span class="edu-badge">🥉 IEO Bronze Medalist</span>
+            <span class="edu-badge">PCM</span>
+            <span class="edu-badge">CBSE</span>
+            <span class="edu-badge">LLMs</span>
+            <span class="edu-badge">Problem Solving</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Y Combinator -->
+      <div class="edu-card reveal reveal-delay-4">
+        <div class="edu-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+        </div>
+        <div>
+          <div class="edu-degree">Entrepreneurship / Entrepreneurial Studies</div>
+          <div class="edu-school">Y Combinator</div>
+          <div class="edu-date">Jun 2026 – Present (YC Startup School 2026)</div>
+          <p class="edu-desc">Accepted into YC Startup School 2026, a founder education program by Y Combinator focused on startup ideation, customer discovery, product development, and growth.</p>
+          <div class="edu-badges">
+            <span class="edu-badge">YC Startup School</span>
+            <span class="edu-badge">Entrepreneurship</span>
+            <span class="edu-badge">Product Growth</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+  <section id="certifications">
+    <div class="section-label reveal">Achievements</div>
+    <h2 class="edu-heading reveal reveal-delay-1">Certifications</h2>
+
+    <!-- Certification Filter Tabs -->
+    <div class="certs-filter-container reveal reveal-delay-2">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="google">AI &amp; Google</button>
+      <button class="filter-btn" data-filter="cyber">Cyber &amp; Tech</button>
+      <button class="filter-btn" data-filter="professional">Professional &amp; Management</button>
+    </div>
+
+    <!-- Certifications Grid -->
+    <div class="certs-grid reveal reveal-delay-3">
+      <!-- 1. YUVA AI for ALL -->
+      <div class="cert-card reveal" data-categories="google cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">YUVA AI for ALL</div>
+            <div class="cert-issuer">IndiaAI • Jun 2026</div>
+            <div class="cert-meta">ID: DFRG8ZANYNAX</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">AI Literacy</span>
+            <span class="cert-badge">National Initiative</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Deloitte Australia - Technology Job Simulation -->
+      <div class="cert-card reveal" data-categories="cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Technology Job Simulation</div>
+            <div class="cert-issuer">Deloitte Australia • Jun 2026</div>
+            <div class="cert-meta">ID: jCvflEWZyhgtAwKo</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Log Analysis</span>
+            <span class="cert-badge">Web Services Security</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Tata - Cybersecurity Analyst Job Simulation -->
+      <div class="cert-card reveal" data-categories="cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Cybersecurity Analyst Simulation</div>
+            <div class="cert-issuer">Tata (Forage) • Jun 2026</div>
+            <div class="cert-meta">ID: PPA8X9HjQSDHTswNb</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">IAM Access</span>
+            <span class="cert-badge">Cyber Defense</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Mastercard - Cybersecurity Job Simulation -->
+      <div class="cert-card reveal" data-categories="cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Cybersecurity Job Simulation</div>
+            <div class="cert-issuer">Mastercard (Forage) • Jun 2026</div>
+            <div class="cert-meta">ID: PApAqAqcXFvd4SBYD</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Cyber Securities</span>
+            <span class="cert-badge">Data Analysis</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. Gemini for Data Scientists and Analysts -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Gemini for Data Scientists</div>
+            <div class="cert-issuer">Google • Jun 2026</div>
+            <div class="cert-meta">ID: 24785051</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Data Science</span>
+            <span class="cert-badge">Gemini AI</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. Introduction to Gemini for Education -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Gemini for Education</div>
+            <div class="cert-issuer">Google for Education • Jun 2026</div>
+            <div class="cert-meta">ID: 184745096</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">EdTech AI</span>
+            <span class="cert-badge">Google Workspace</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. Introduction to Google NotebookLM -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Google NotebookLM</div>
+            <div class="cert-issuer">Google for Education • Jun 2026</div>
+            <div class="cert-meta">ID: 184672897</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">NotebookLM</span>
+            <span class="cert-badge">Research &amp; Notes</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. Introduction to Vibe Coding with Gemini -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Vibe Coding with Gemini</div>
+            <div class="cert-issuer">Google for Education • Jun 2026</div>
+            <div class="cert-meta">ID: 184672829</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Vibe Coding</span>
+            <span class="cert-badge">AI Development</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. Gemini Certification for Students (K12) -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Gemini Student Certification</div>
+            <div class="cert-issuer">Google • Jun 2026</div>
+            <div class="cert-meta">ID: 466592516</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Gemini AI</span>
+            <span class="cert-badge">Technical Support</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 10. Adobe Photoshop -->
+      <div class="cert-card reveal" data-categories="professional">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5 22 22 17.5 22 12S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"/><circle cx="7.5" cy="10.5" r="1.5"/><circle cx="11.5" cy="7.5" r="1.5"/><circle cx="16.5" cy="9.5" r="1.5"/><circle cx="15.5" cy="14.5" r="1.5"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Adobe Photoshop</div>
+            <div class="cert-issuer">EDUCBA • Jun 2026</div>
+            <div class="cert-meta">ID: EXF194BQ6</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Photo Editing</span>
+            <span class="cert-badge">Creative Design</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 11. Introduction to Large Language Models -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Large Language Models (LLM)</div>
+            <div class="cert-issuer">Google • Jun 2026</div>
+            <div class="cert-meta">ID: 24591564</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">LLMs</span>
+            <span class="cert-badge">Generative AI</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 12. Lifelong Professional Skills -->
+      <div class="cert-card reveal" data-categories="professional">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Lifelong Professional Skills</div>
+            <div class="cert-issuer">IBM • Jun 2026</div>
+            <div class="cert-meta">Professional Competencies</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Collaboration</span>
+            <span class="cert-badge">Communication</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 13. Siemens Mobility - Project Manager Job Simulation -->
+      <div class="cert-card reveal" data-categories="professional">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Project Manager Simulation</div>
+            <div class="cert-issuer">Siemens Mobility • May 2026</div>
+            <div class="cert-meta">ID: vi3QxdQqTgAqucHxc</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Project Management</span>
+            <span class="cert-badge">Dashboard Ops</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 14. JPMorganChase - Software Engineering Job Simulation -->
+      <div class="cert-card reveal" data-categories="cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Software Engineering Simulation</div>
+            <div class="cert-issuer">JPMorgan Chase • May 2026</div>
+            <div class="cert-meta">ID: nvL5uCTGz2LAkncBN</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Spring Framework</span>
+            <span class="cert-badge">Build Tools</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 15. Goldman Sachs - Risk Job Simulation -->
+      <div class="cert-card reveal" data-categories="professional">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Risk Management Simulation</div>
+            <div class="cert-issuer">Goldman Sachs • May 2026</div>
+            <div class="cert-meta">ID: iavqdrBANzUhHSSID</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Risk Analysis</span>
+            <span class="cert-badge">Decision Making</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 16. Enterprise Design Thinking Practitioner -->
+      <div class="cert-card reveal" data-categories="professional">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22C17.5 22 22 17.5 22 12S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10z"/><circle cx="7.5" cy="10.5" r="1.5"/><circle cx="11.5" cy="7.5" r="1.5"/><circle cx="16.5" cy="9.5" r="1.5"/><circle cx="15.5" cy="14.5" r="1.5"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Design Thinking Practitioner</div>
+            <div class="cert-issuer">IBM • May 2026</div>
+            <div class="cert-meta">Design Methodologies</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Design Thinking</span>
+            <span class="cert-badge">Teamwork</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 17. Fundamentals of Remote Sensing -->
+      <div class="cert-card reveal" data-categories="cyber">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">Fundamentals of Remote Sensing</div>
+            <div class="cert-issuer">NASA • May 2026</div>
+            <div class="cert-meta">Earth Observations</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Remote Sensing</span>
+            <span class="cert-badge">Satellite Data</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 18. AI Fundamentals: Foundations for Understanding AI -->
+      <div class="cert-card reveal" data-categories="google">
+        <div class="cert-header">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+          </div>
+          <div>
+            <div class="cert-title">AI Fundamentals</div>
+            <div class="cert-issuer">IBM • May 2026</div>
+            <div class="cert-meta">Foundations of AI</div>
+          </div>
+        </div>
+        <div class="cert-footer">
+          <div class="cert-badges">
+            <span class="cert-badge">Deep Learning</span>
+            <span class="cert-badge">AI Ethics</span>
+          </div>
+          <a href="https://www.linkedin.com/in/shreyamd/details/certifications/" target="_blank" rel="noopener" class="cert-link">
+            Verify Badge
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
         </div>
       </div>
     </div>
@@ -1457,7 +2118,7 @@
       Have a project in mind, want to collaborate, or just want to say hello? My inbox is always open.
     </p>
     <div class="contact-links reveal reveal-delay-3">
-      <a href="mailto:jullymishrakjr1@gmail.com" class="contact-card">
+      <a href="mailto:clouttheorystudio@gmail.com" class="contact-card">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6" fill="none" stroke="currentColor" stroke-width="2"/></svg>
         Email Me
       </a>
@@ -1469,12 +2130,16 @@
         <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         GitHub
       </a>
+      <a href="https://clouttheory.in" target="_blank" rel="noopener" class="contact-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        clouttheory.in
+      </a>
     </div>
   </section>
 
   <footer>
     <span class="footer-text">© 2026 Shreyam Dash. All rights reserved.</span>
-    <span class="footer-text">Built with precision &amp; purpose · <a href="mailto:jullymishrakjr1@gmail.com">jullymishrakjr1@gmail.com</a></span>
+    <span class="footer-text">Built with precision &amp; purpose · <a href="mailto:clouttheorystudio@gmail.com">clouttheorystudio@gmail.com</a></span>
   </footer>
 
   <script>
@@ -1642,18 +2307,6 @@
         const repos = await res.json();
 
         if (repos.length > 0) {
-          const localProjects = `
-            <div class="project-card reveal visible" style="cursor:default;">
-              <div class="proj-icon">
-                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-              </div>
-              <div class="proj-title">Clout Theory Studio</div>
-              <p class="proj-desc">Creative studio brand encompassing video production, audio editing, and brand design services.</p>
-              <div class="proj-footer">
-                <span class="proj-lang"><span class="lang-dot" style="background:#7fb069;"></span>Media / Strategy</span>
-              </div>
-            </div>`;
-
           const githubCards = repos.map((repo, index) => `
             <a href="${repo.html_url}" target="_blank" rel="noopener" class="project-card reveal visible" style="text-decoration:none; animation-delay: ${index * 0.1}s">
               <div class="proj-icon">
@@ -1667,7 +2320,40 @@
             </a>
           `).join('');
 
-          projContainer.innerHTML = githubCards + localProjects;
+          const staticCards = `
+            <div class="project-card reveal visible" style="animation-delay: 0s;">
+              <div class="proj-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+              </div>
+              <div class="proj-title">Video Editing &amp; Production</div>
+              <p class="proj-desc">Worked with various clients to deliver high-retention video edits, dynamic pacing, and custom hook scripting that drives audience engagement.</p>
+              <div class="proj-footer">
+                <span class="proj-lang"><span class="lang-dot" style="background:#7fb069;"></span>Creative / Production</span>
+              </div>
+            </div>
+            <div class="project-card reveal visible" style="animation-delay: 0.1s;">
+              <div class="proj-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+              </div>
+              <div class="proj-title">Audio Engineering &amp; Editing</div>
+              <p class="proj-desc">Professional vocal tuning, background noise cleanup, sound design, and master mixing for podcasts and creators.</p>
+              <div class="proj-footer">
+                <span class="proj-lang"><span class="lang-dot" style="background:#c8a96e;"></span>Sound Design / Podcasting</span>
+              </div>
+            </div>
+            <a href="https://github.com/Zuix-07" target="_blank" rel="noopener" class="project-card reveal visible" style="text-decoration:none; animation-delay: 0.2s;">
+              <div class="proj-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              </div>
+              <div class="proj-title">Portfolio Website</div>
+              <p class="proj-desc">A premium minimalist personal portfolio designed to showcase projects, skills, and experience with pure HTML, CSS, and Vanilla JS.</p>
+              <div class="proj-footer">
+                <span class="proj-lang"><span class="lang-dot" style="background:#c8a96e;"></span>HTML / CSS</span>
+              </div>
+            </a>
+          `;
+
+          projContainer.innerHTML = staticCards + githubCards;
 
           // Re-apply tilt to dynamically loaded cards
           if (isDesktop) {
@@ -1692,6 +2378,29 @@
         console.log('GitHub fetch skipped or failed. Using fallback UI.');
       }
     }
+
+    // ─── Certifications Filtering ───
+    const certFilterButtons = document.querySelectorAll('.filter-btn');
+    const certCards = document.querySelectorAll('.cert-card');
+
+    certFilterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        certFilterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        certCards.forEach(card => {
+          const categories = card.getAttribute('data-categories').split(' ');
+          if (filterValue === 'all' || categories.includes(filterValue)) {
+            card.classList.remove('filtered-out');
+            card.classList.add('visible');
+          } else {
+            card.classList.add('filtered-out');
+          }
+        });
+      });
+    });
 
     document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
   </script>
